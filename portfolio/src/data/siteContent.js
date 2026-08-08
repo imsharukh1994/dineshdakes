@@ -4,14 +4,13 @@ const weddingImagesRaw = import.meta.glob('../assets/wedding/*.jpeg', { eager: t
 
 const profileImageRaw = import.meta.glob('../assets/profile.jfif', { eager: true, query: '?url', import: 'default' });
 
-export const profileImage = Object.values(profileImageRaw)[0] || '';
+export const profileImage = profileImageRaw?.default || Object.values(profileImageRaw)[0]?.default || Object.values(profileImageRaw)[0] || '';
 
-export const celebrityImages = Object.values(celebrityImagesRaw).map(src => ({ src, category: 'Celebrity' }));
+export const celebrityImages = Object.values(celebrityImagesRaw).map(src => ({ src: src?.default || src, category: 'Celebrity' }));
 
-export const weddingImages = Object.values(weddingImagesRaw).map(src => ({ src, category: 'Wedding / On Set' }));
+export const weddingImages = Object.values(weddingImagesRaw).map(src => ({ src: src?.default || src, category: 'Wedding / On Set' }));
 
 export const portfolioImages = [...celebrityImages, ...weddingImages];
-
 export const siteContent = {
   artistName: "DINESH DAKE",
   artistTitle: "CELEBRITY MAKEUP & HAIR ARTIST",
