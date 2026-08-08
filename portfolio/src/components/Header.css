@@ -1,0 +1,130 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  padding: 1.5rem 0;
+  background: transparent;
+}
+
+.header.scrolled {
+  background: rgba(8, 8, 8, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.logo-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0 1rem;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desktop-only {
+  display: none;
+}
+
+.mobile-menu-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.mobile-book-btn {
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+  .mobile-menu-btn {
+    display: none;
+  }
+  .desktop-only {
+    display: inline-block;
+  }
+  .btn-book {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+  }
+}

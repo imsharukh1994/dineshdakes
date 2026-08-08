@@ -1,0 +1,57 @@
+.about-section {
+  background: var(--color-secondary);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  border: 1px dashed var(--color-border);
+}
+
+.about-title {
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+.about-quote {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  border-left: 2px solid var(--color-border);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.about-bio {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .about-grid {
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
+  }
+}
