@@ -27,7 +27,11 @@ export const siteContent = {
     { id: "SRppUOOVJV0", title: "7 August 2026" },
     { id: "cZJBwApqk2E", title: "9 March 2026" },
     { id: "y-ohtNHpmrA", title: "3 March 2026" },
-    { id: "blGhf-fwuCE", title: "10 February 2026" }
+    { id: "blGhf-fwuCE", title: "10 February 2026" },
+    { id: "bGTBg90cIlQ", title: "Makeup Video 1" },
+    { id: "6Cxd-BLRDOw", title: "Makeup Video 2" },
+    { id: "qZ5IAIm5Qfo", title: "Makeup Video 3" },
+    { id: "B756UxWcMlQ", title: "Makeup Video 4" }
   ],
   socialLinks: {
     instagram: "", // Provide URLs when available
