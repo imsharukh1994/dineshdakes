@@ -116,3 +116,19 @@
     flex-shrink: 0;
   }
 }
+
+/* Overrides for dedicated Videos page */
+.videos-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.videos-page-grid .video-card {
+  flex-direction: column !important;
+}
+
+.videos-page-grid .video-thumbnail {
+  width: 100% !important;
+}

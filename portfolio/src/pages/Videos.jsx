@@ -21,9 +21,11 @@ const Videos = () => {
             </p>
           </div>
           
-          <div className="video-list" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))' }}>
+          <div className="video-list videos-page-grid">
             {youtubeVideos.map((video) => (
-              <VideoCard key={video.id} video={{...video, thumbnail: `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}} />
+              <div key={video.id} className="videos-page-card">
+                <VideoCard video={{...video, thumbnail: `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}} />
+              </div>
             ))}
           </div>
 
