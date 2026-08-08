@@ -3,20 +3,54 @@ import { Play } from 'lucide-react';
 import { siteContent } from '../data/siteContent';
 import './VideoSection.css';
 
+import { useState } from 'react';
+import { X } from 'lucide-react';
+
 const VideoCard = ({ video }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer" className="video-card">
-      <div className="video-thumbnail">
-        <img 
-          src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
-          alt={`Thumbnail for video`} 
-          loading="lazy"
-        />
-        <div className="play-icon">
-          <Play size={24} fill="currentColor" />
+    <>
+      <div className="video-card" onClick={() => setIsOpen(true)} style={{ cursor: 'pointer' }}>
+        <div className="video-thumbnail">
+          <img 
+            src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+            alt={`Thumbnail for video`} 
+            loading="lazy"
+          />
+          <div className="play-icon">
+            <Play size={24} fill="currentColor" />
+          </div>
         </div>
       </div>
-    </a>
+      
+      {isOpen && (
+        <div className="video-modal-overlay" onClick={() => setIsOpen(false)} style={{
+          position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+          backgroundColor: 'rgba(0,0,0,0.9)', zIndex: 9999,
+          display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '5%'
+        }}>
+          <button className="video-modal-close" onClick={() => setIsOpen(false)} style={{
+            position: 'absolute', top: '20px', right: '30px', background: 'none', border: 'none',
+            color: 'white', cursor: 'pointer', zIndex: 10000
+          }}>
+            <X size={40} />
+          </button>
+          <div className="video-modal-content" onClick={e => e.stopPropagation()} style={{
+            width: '100%', maxWidth: '1000px', aspectRatio: '16/9', position: 'relative'
+          }}>
+            <iframe 
+              src={`https://www.youtube.com/embed/${video.id}?autoplay=1`} 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+              style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+            ></iframe>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
